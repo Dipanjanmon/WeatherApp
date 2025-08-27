@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WeatherAPP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand">
+            <a href="./index.html" class="brand-link">
+              <img src="logo.svg" alt="WeatherAPP logo" class="logo">
+              <span class="brand-text">Weather</span>
+            </a>
+          </div>
+          <div class="search-container">
+            <input id="q" type="search" placeholder="Search any city..." aria-label="Search city or place" autocomplete="off">
+            <ul id="suggestions" class="suggestions hidden" role="listbox" aria-label="Search suggestions"></ul>
+          </div>
+          <div class="header-actions">
+            <button id="locBtn" class="ghost" title="Use my location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </button>
+            <div class="fav-wrapper">
+              <button id="favBtn" class="ghost" title="Favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </button>
+              <div id="favDropdown" class="fav-dropdown hidden">
+                <div class="fav-header">Favorites <button id="clearFavs" class="link small">Clear</button></div>
+                <ul id="favorites" class="favorites"></ul>
+              </div>
+            </div>
+            <button id="themeBtn" class="ghost" title="Toggle theme">
+              </button>
+            </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="status" class="status">Type a place or use location to view weather.</section>
+
+        <section class="content">
+          <section class="panel">
+            <div id="current" class="card current hidden">
+              <div class="current-head">
+                  <div class="place-time">
+                    <h2 id="place">—</h2>
+                    <div id="time" class="muted-text">—</div>
+                  </div>
+                  <div class="unit-toggle-container">
+                    <small class="unit-label">°C</small>
+                    <label class="switch">
+                      <input id="unitToggleLocal" type="checkbox">
+                      <span class="slider"></span>
+                    </label>
+                    <small class="unit-label">°F</small>
+                  </div>
+                </div>
+              
+              <div class="current-main">
+                <div class="temp">
+                  <div id="weatherIcon" class="weather-icon" aria-hidden="true">☁️</div>
+                  <div class="temp-value">
+                    <span id="temp">—</span>
+                  </div>
+                </div>
+                <div id="desc" class="weather-description">—</div>
+              </div>
+
+              <div class="current-body">
+                <div class="details">
+                  <div>Wind<span id="wind" class="detail-value">—</span></div>
+                  <div>Humidity<span id="humidity" class="detail-value">—</span></div>
+                  <div>Pressure<span id="pressure" class="detail-value">—</span></div>
+                </div>
+                <div class="actions">
+                  <button id="addFav" class="primary">Add to favorites</button>
+                </div>
+              </div>
+            </div>
+
+            <section id="forecast-section" class="hidden">
+              <h2 class="forecast-title">7-Day Forecast</h2>
+              <div id="forecast" class="forecast"></div>
+            </section>
+
+          </section>
+        </section>
+      </main>
+
+      <footer>
+        <small>&copy; 2025 All rights reserved</small>
+      </footer>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
